@@ -4,6 +4,7 @@ import ProductScreen from './screens/ProductScreen';
 import Container from 'react-bootstrap/Container';
 import HeaderNav from './components/HeaderNav';
 import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
+              <Route path="/signin" element={<SigninScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
