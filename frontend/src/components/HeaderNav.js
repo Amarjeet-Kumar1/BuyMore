@@ -1,12 +1,16 @@
 import { useContext } from 'react';
-import { Badge, Container, Nav, Navbar } from 'react-bootstrap';
+import { Badge, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import { Store } from '../Store';
 
 export default function HeaderNav() {
-  const { state } = useContext(Store);
-  const { cart } = state;
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart, userInfo } = state;
+  const signoutHandler = () => {
+    ctxDispatch({ type: 'USER_SIGNOUT' });
+    localStorage.removeItem('userInfo');
+  };
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -22,6 +26,28 @@ export default function HeaderNav() {
               </Badge>
             )}
           </Link>
+          {userInfo ? (
+            <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+              <LinkContainer to="/profile">
+                <NavDropdown.Item>User Profile</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/orderhistory">
+                <NavDropdown.Item>Order History</NavDropdown.Item>
+              </LinkContainer>
+              <NavDropdown.Divider />
+              <Link
+                className="dropdown-item"
+                to="#signout"
+                onClick={signoutHandler}
+              >
+                Sign Out
+              </Link>
+            </NavDropdown>
+          ) : (
+            <Link className="nav-link" to="/signin">
+              Sign In
+            </Link>
+          )}
         </Nav>
       </Container>
     </Navbar>
