@@ -10,6 +10,7 @@ export default function HeaderNav() {
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
   };
   return (
     <Navbar bg="dark" variant="dark">
