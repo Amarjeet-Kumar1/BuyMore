@@ -11,6 +11,9 @@ import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SignupScreen from './screens/SignupScreeen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen';
+import PaymentProcessScreen from './screens/PaymentProcessScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
 function App() {
   return (
     <BrowserRouter>
@@ -29,6 +32,12 @@ function App() {
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/payment" element={<PaymentMethodScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
+              <Route path="/order/:id" element={<OrderScreen />} />
+              <Route
+                path="/order/:id/secure-payment"
+                element={<PaymentProcessScreen />}
+              />
+              <Route path="/orderhistory" element={<OrderHistoryScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
