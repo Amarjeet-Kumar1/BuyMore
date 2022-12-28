@@ -12,6 +12,7 @@ export default function HeaderNav() {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
+    window.location.href = '/signin';
   };
   return (
     <Navbar bg="dark" variant="dark" expand="lg">

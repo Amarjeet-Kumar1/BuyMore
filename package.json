@@ -1,0 +1,21 @@
+{
+  "name": "buymore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amarjeet-Kumar1/BuyMore.git"
+  },
+  "author": "Amarjeet Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amarjeet-Kumar1/BuyMore/issues"
+  },
+  "homepage": "https://github.com/Amarjeet-Kumar1/BuyMore#readme"
+}
