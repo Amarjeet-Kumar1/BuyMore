@@ -51,7 +51,7 @@ orderRouter.get(
       {
         $group: {
           _id: null,
-          numUsers: { $num: 1 },
+          numUsers: { $sum: 1 },
         },
       },
     ]);
@@ -76,7 +76,7 @@ orderRouter.get(
         },
       },
     ]);
-    res.send({ users, dailyOrders, productCategories });
+    res.send({ users, orders, dailyOrders, productCategories });
   })
 );
 
