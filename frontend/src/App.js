@@ -77,7 +77,7 @@ function App() {
                 }
               />
               <Route
-                path="/admin/productlist"
+                path="/admin/products"
                 element={
                   <AdminRoute>
                     <ProductListScreen />
@@ -85,7 +85,7 @@ function App() {
                 }
               />
               <Route
-                path="/admin/orderlist"
+                path="/admin/orders"
                 element={
                   <AdminRoute>
                     <OrderListScreen />
@@ -93,7 +93,7 @@ function App() {
                 }
               />
               <Route
-                path="/admin/userlist"
+                path="/admin/users"
                 element={
                   <AdminRoute>
                     <UserListScreen />
