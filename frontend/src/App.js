@@ -15,6 +15,12 @@ import OrderScreen from './screens/OrderScreen';
 import PaymentProcessScreen from './screens/PaymentProcessScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
+import DashboardScreen from './screens/DashboardScreen';
+import ProductListScreen from './screens/ProductListScreen';
+import OrderListScreen from './screens/OrderListScreen';
+import UserListScreen from './screens/UserListScreen';
 function App() {
   return (
     <BrowserRouter>
@@ -30,16 +36,70 @@ function App() {
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
-              <Route path="/profile" element={<ProfileScreen />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfileScreen />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/payment" element={<PaymentMethodScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />} />
+              <Route
+                path="/order/:id"
+                element={
+                  <ProtectedRoute>
+                    <OrderScreen />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/order/:id/secure-payment"
                 element={<PaymentProcessScreen />}
               />
-              <Route path="/orderhistory" element={<OrderHistoryScreen />} />
+              <Route
+                path="/orderhistory"
+                element={
+                  <ProtectedRoute>
+                    <OrderHistoryScreen />
+                  </ProtectedRoute>
+                }
+              />
+              {/* admin route */}
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <AdminRoute>
+                    <DashboardScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/productlist"
+                element={
+                  <AdminRoute>
+                    <ProductListScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/orderlist"
+                element={
+                  <AdminRoute>
+                    <OrderListScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/userlist"
+                element={
+                  <AdminRoute>
+                    <UserListScreen />
+                  </AdminRoute>
+                }
+              />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
