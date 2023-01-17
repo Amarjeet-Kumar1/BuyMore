@@ -5,7 +5,6 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
     },
     slug: {
       type: String,
@@ -38,11 +37,9 @@ const productSchema = new mongoose.Schema(
     },
     rating: {
       type: Number,
-      required: true,
     },
     numReviews: {
       type: Number,
-      required: true,
     },
   },
   {
